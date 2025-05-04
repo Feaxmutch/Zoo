@@ -1,0 +1,14 @@
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\bin\Debug\net8.0\Zoo.exe
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\bin\Debug\net8.0\Zoo.deps.json
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\bin\Debug\net8.0\Zoo.runtimeconfig.json
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\bin\Debug\net8.0\Zoo.dll
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\bin\Debug\net8.0\Zoo.pdb
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.GeneratedMSBuildEditorConfig.editorconfig
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.AssemblyInfoInputs.cache
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.AssemblyInfo.cs
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.csproj.CoreCompileInputs.cache
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.dll
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\refint\Zoo.dll
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.pdb
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.genruntimeconfig.cache
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\ref\Zoo.dll
