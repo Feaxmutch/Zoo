@@ -12,3 +12,4 @@ F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\
 F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.pdb
 F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.genruntimeconfig.cache
 F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\ref\Zoo.dll
+F:\данил\Projects\visual_studio_projects\IJ_projects\OOP\Zoo\Zoo\obj\Debug\net8.0\Zoo.sourcelink.json

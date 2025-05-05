@@ -12,23 +12,9 @@
                 new Animal("гусь", "га-га-га", Gender.Male),
             };
 
-            List<int> animalCounts = new()
-            {
-                4,
-                2,
-                3,
-                5
-            };
-
-            AnimalFactory animalFactory = new(animalTypes);
-            List<Aviary> aviaries = new();
-
-            for (int i = 0; i < animalTypes.Count; i++)
-            {
-                aviaries.Add(new Aviary(animalFactory.Create(i, animalCounts[i])));
-            }
-
-            Zoo zoo = new(aviaries);
+            NumberRange animalsCount = new(2, 6);
+            ZooFactory zooFactory = new();
+            Zoo zoo = zooFactory.Create(animalTypes, animalsCount);
             zoo.Open();
         }
     }
@@ -70,6 +56,35 @@
             }
 
             return animals;
+        }
+    }
+
+    class ZooFactory
+    {
+        private Random _random;
+
+        public ZooFactory()
+        {
+            _random = new();
+        }
+
+        public Zoo Create(List<Animal> animalTypes, NumberRange animalsCount)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(animalsCount.Minimum);
+            ArgumentNullException.ThrowIfNull(animalTypes);
+
+            AnimalFactory animalFactory = new(animalTypes);
+            List<Aviary> aviaries = new();
+
+            for (int i = 0; i < animalTypes.Count; i++)
+            {
+                int count = _random.Next(animalsCount.Minimum, animalsCount.Maximum + 1);
+                List<Animal> animals = animalFactory.Create(i, count);
+                Aviary aviary = new(animals);
+                aviaries.Add(aviary);
+            }
+
+            return new Zoo(aviaries);
         }
     }
 
@@ -219,6 +234,21 @@
                 return new Animal(Name, _sound, Gender);
             }
         }
+    }
+
+    public struct NumberRange
+    {
+        public NumberRange(int minimum, int maximum)
+        {
+            ArgumentOutOfRangeException.ThrowIfLessThan(maximum, minimum);
+
+            Minimum = minimum;
+            Maximum = maximum;
+        }
+
+        public int Minimum { get; }
+
+        public int Maximum { get; }
     }
 
     enum Gender
