@@ -15,7 +15,7 @@
             NumberRange animalsCount = new(2, 6);
             ZooFactory zooFactory = new();
             Zoo zoo = zooFactory.Create(animalTypes, animalsCount);
-            zoo.Open();
+            zoo.Work();
         }
     }
 
@@ -25,34 +25,23 @@
 
         public static Gender GetRandomGender()
         {
-            int maleIndex = (int)Gender.Male;
-            int femaleIndex = (int)Gender.Female;
-            return (Gender)s_random.Next(maleIndex, femaleIndex + 1);
+            Gender[] genders = Enum.GetValues<Gender>();
+            return genders[s_random.Next(0, genders.Length)];
         }
     }
 
     class AnimalFactory
     {
-        private readonly List<Animal> _animalSamples;
-
-        public AnimalFactory(List<Animal> animalSamples)
-        {
-            ArgumentNullException.ThrowIfNull(animalSamples);
-
-            _animalSamples = animalSamples;
-        }
-
-        public List<Animal> Create(int sampleIndex, int count)
+        public List<Animal> CloneAnimal(Animal sample, int count)
         {
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(count);
-            ArgumentOutOfRangeException.ThrowIfNegative(sampleIndex);
-            ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(sampleIndex, _animalSamples.Count);
+            ArgumentNullException.ThrowIfNull(sample);
 
             List<Animal> animals = new();
 
             for (int i = 0; i < count; i++)
             {
-                animals.Add(_animalSamples[sampleIndex].Clone(true));
+                animals.Add(sample.Clone(true));
             }
 
             return animals;
@@ -73,13 +62,13 @@
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(animalsCount.Minimum);
             ArgumentNullException.ThrowIfNull(animalTypes);
 
-            AnimalFactory animalFactory = new(animalTypes);
+            AnimalFactory animalFactory = new();
             List<Aviary> aviaries = new();
 
             for (int i = 0; i < animalTypes.Count; i++)
             {
                 int count = _random.Next(animalsCount.Minimum, animalsCount.Maximum + 1);
-                List<Animal> animals = animalFactory.Create(i, count);
+                List<Animal> animals = animalFactory.CloneAnimal(animalTypes[i], count);
                 Aviary aviary = new(animals);
                 aviaries.Add(aviary);
             }
@@ -90,7 +79,7 @@
 
     class Zoo
     {
-        private const string CommandEscape = "escape";
+        private const string CommandExit = "quit";
 
         private readonly List<Aviary> _aviaries;
 
@@ -101,21 +90,21 @@
             _aviaries = aviaries;
         }
 
-        public void Open()
+        public void Work()
         {
-            bool isOpened = true;
+            bool isWorking = true;
 
-            while (isOpened)
+            while (isWorking)
             {
                 Console.Clear();
                 ShowAviarys();
-                Console.WriteLine($"Выберите вольер, к которому хотите подойти, или {CommandEscape}, чтобы закрыть программу.");
+                Console.WriteLine($"Выберите вольер, к которому хотите подойти, или {CommandExit}, чтобы закрыть программу.");
                 string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
-                    case CommandEscape:
-                        isOpened = false;
+                    case CommandExit:
+                        isWorking = false;
                         break;
 
                     default:
